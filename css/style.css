@@ -1,0 +1,435 @@
+/***  FONTS ***/
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
+
+/***  VARIABLES & THEMES ***/
+
+:root {
+    
+    /* Font Scale */
+    font-size: 62.5%; /* 1rem = 10px */
+    
+    --primary-color: #cf0f0f;
+    --primary-color-contrast: #ffffff;
+    --field-background-color: #000;
+
+}
+  
+
+.light-theme {
+    --page-background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 65%,
+        rgba(255, 255, 255, 0.75) 100%
+      );
+    --header-background-color: #e3e3e3;
+    --highlight-color: #000000;
+    --featured-font-family: "Archivo", sans-serif;
+    --character-top-image-src: url("../images/characters/kids-on-the-bike.svg");
+    --character-top-image-color: #ffffff;
+    --character-bottom-image-src: url("../images/characters/inverted-world-monster.svg");
+    --character-bottom-image-color: #e5e5e5;
+    --background-lamp-image: url("../img/lamps.png");
+    --footer-background-color: #b5bbbf;
+    --footer-img-bg: url("../img/footer-img-white.png");
+  }
+
+.dark-theme {
+    --page-background: linear-gradient(
+        180deg,
+        #050000 0%,
+        #130404 65%,
+        rgba(19, 1, 1, 0.75) 100%
+      );
+    --header-background-color: #220f0f;
+    --highlight-color: #ffffff;
+    --featured-font-family: "Rubik Glitch", sans-serif;
+    --character-bottom-image-src: url("../images/characters/kids-on-the-bike.svg");
+    --character-bottom-image-color: rgba(255, 255, 255, 0.1);
+    --character-top-image-src: url("../images/characters/inverted-world-monster.svg");
+    --character-top-image-color: #000;
+    --background-lamp-image: url("../img/lamps-inverted.png");
+    --footer-background-color: #000;
+    --footer-img-bg: url("../img/footer-img-dark.png");
+}
+
+.dark-theme button,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3 {
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+
+
+.dark-theme .invert-element {
+    transform: rotateZ(180deg) scaleX(-1);
+    transition: all 1s;
+  }
+
+/* Generic Style */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--page-background);
+}
+
+.container {
+    padding-inline: 3rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--featured-font-family);
+    font-size: 3.4rem;
+    color: #cf0f0f;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--highlight-color);
+    font-size: 1.4rem;
+    font-family: "Libre Baskerville", serif;
+}
+
+button {
+    padding: 1.6rem 3.2rem;
+    background-color: transparent;
+    font-weight: 900;
+    font-family: var(--featured-font-family);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input,
+textarea {
+  border: 2px solid var(--primary-color-contrast);
+  background-color: var(--field-background-color);
+  color: var(--primary-color-contrast);
+  padding: .8rem;
+}
+
+input,
+textarea {
+  margin-bottom: 2.4rem;
+  max-width: 100%;
+}
+
+label {
+  margin-bottom: .8rem;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: black;
+}
+
+/* Header */
+
+header {
+    background-color: var(--header-background-color);
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 50rem;
+    padding-top: 6rem;
+    padding-bottom: 18rem; 
+    align-items: center; 
+    position: relative;
+    border: 0px solid red;
+}
+
+header::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-image: url(../img/bg_header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.header__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    text-align: center;
+    z-index: 2;
+}
+
+.header__logo {
+    width: 70%;
+}
+
+header button {
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+}
+
+header button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+    transition: all .4s;
+}
+
+.box-img-central-header {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    
+}
+
+.img__central {
+    width: 80%;
+    transition: all 1s;
+}
+
+/* Main Section */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+main::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--page-background) no-repeat,
+    url(../img/florest.png) no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* main::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    background-image: url(../img/florest.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+} */
+
+/* Section 1 - O Mundo Invertido */
+
+.box-img-central-main {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+}
+
+.box-img-central-main img {
+    width: 80%;
+    transition: all .5s;
+}
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    border: 0px solid green;
+    height: fit-content;
+    padding-top: 18rem;
+    padding-bottom: 4rem;
+    align-items: center;
+}
+
+.sect1__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.sect1__banner {
+    width: 70%;
+    margin: 0 auto;
+    transform: rotate(-5.6deg);
+}
+
+/* Section 2 - Season 4 */
+
+.section2 {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4rem;
+    border: 0px solid green;
+    height: fit-content;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.sect2__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-align: right;
+}
+
+/* Section 3 - Pictures */
+
+.section3 {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    border: 0px solid green;
+    height: fit-content;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-image: var(--background-lamp-image);
+    background-position: 90px 90px;
+    background-size: cover;
+    background-repeat: no-repeat;   
+}
+
+.sect3__box__img {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.box__pic {
+    background-color: var(--highlight-color);
+    padding: 1rem;
+    width: 50%;
+}
+
+.box__pic img {
+    padding: .5rem;
+    border: 1px solid var(--primary-color);
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Section 4 - Form */
+
+.section4 {
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    border: 1px solid gren;
+    padding-block: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.sect4__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.sect4__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+}
+
+.sect4__box-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.sect4__box-bottom h2 {
+    color: var(--highlight-color);
+    width: 30%;
+}
+
+.sect4__form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+    text-align: left;
+    width: 100%;
+  }
+  
+.sect4__form form button {
+    border: none;
+    background-color: var(--field-background-color);
+    color: var(--primary-color-contrast);
+    max-width: 300px;
+    align-self: center;
+  }
+  
+.sect4__form form button:hover {
+    background-color: var(--primary-color-contrast);
+    color: var(--field-background-color);
+  }
+
+/* Footer - Créditos */
+
+footer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding-block: 2rem;
+    background-color: var(--footer-background-color);
+    background-image: var(--footer-img-bg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+footer p {
+    color: var(--highlight-color);
+    font-size: 1rem;
+    text-align: center;
+    width: 70%;
+    line-height: 1.6rem;
+}
+
+footer img {
+    width: 20%;
+}
+
+
+
+
+
+
+
+
+
