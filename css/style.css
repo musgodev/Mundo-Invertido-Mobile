@@ -103,6 +103,7 @@ p {
     color: var(--highlight-color);
     font-size: 1.4rem;
     font-family: "Libre Baskerville", serif;
+    line-height: 2rem;
 }
 
 button {
